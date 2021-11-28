@@ -21,7 +21,7 @@ func main() {
 		fmt.Print(string(s[i]),",")
 	}
 
-	fmt.Println("\n")
+	fmt.Println("")
 
 	s2 := []rune(s)
 	fmt.Println("len(s2) = ", len(s2))
