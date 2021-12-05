@@ -28,6 +28,7 @@ func main() {
 func AddNode(root *Node, val int) {
 	//맨 끝의 노드를 처음 부터 시작해서 넥스트 노드가 없을 때까지 전진 : O(N)
 	var tail *Node
+	//처음은 루트와 테일이 같은 노드에 존재.
 	tail = root
 	for tail.next != nil {
 		tail = tail.next
