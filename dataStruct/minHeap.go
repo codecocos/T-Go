@@ -2,11 +2,11 @@ package dataStruct
 
 import "fmt"
 
-type Heap struct {
+type MinHeap struct {
 	list []int
 }
 
-func (h *Heap) Push(v int) {
+func (h *MinHeap) Push(v int) {
 	//맨뒤에 새로운 것 추가
 	h.list = append(h.list, v)
 
@@ -16,8 +16,7 @@ func (h *Heap) Push(v int) {
 		if parentIdx < 0 {
 			break
 		}
-		//추가된 노드가 부모노드보다 값이 크다면, 서로 자리 교체
-		if h.list[idx] > h.list[parentIdx] {
+		if h.list[idx] < h.list[parentIdx] {
 			h.list[idx], h.list[parentIdx] = h.list[parentIdx], h.list[idx]
 			idx = parentIdx
 		} else {
@@ -26,15 +25,15 @@ func (h *Heap) Push(v int) {
 	}
 }
 
-func (h *Heap) Print() {
+func (h *MinHeap) Print() {
 	fmt.Println(h.list)
 }
 
-func (h *Heap) Count() int {
+func (h *MinHeap) Count() int {
 	return len(h.list)
 }
 
-func (h *Heap) Pop() int {
+func (h *MinHeap) Pop() int {
 	if len(h.list) == 0 {
 		return 0
 	}
@@ -46,6 +45,10 @@ func (h *Heap) Pop() int {
 	//리스트에서 맨 뒤의 것을 제외.
 	h.list = h.list[:len(h.list)-1]
 
+	if len(h.list) == 0 {
+		return top
+	}
+
 	//맨 뒤의 것을 맨 위로 바꿈
 	h.list[0] = last
 	idx := 0
@@ -54,26 +57,19 @@ func (h *Heap) Pop() int {
 	for idx < len(h.list) {
 		swapIdx := -1
 		leftIdx := idx*2+1
-		//왼쪽 자식 노드가 없음.
+
 		if leftIdx >= len(h.list){
 			break
 		}
-		//왼쪽이랑 현재값이랑 비교해서 왼쪽이 크다
-		if h.list[leftIdx] >h.list[idx] {
+
+		if h.list[leftIdx] < h.list[idx] {
 			swapIdx = leftIdx
 		}
 
 		rightIdx := idx*2+2
-		//오른쪽 자식 노드가 존재
 		if rightIdx < len(h.list) {
-			//오른쪽 인덱스가 큰경 우
-			if h.list[rightIdx] > h.list[idx] {
-				//현재 오른쪽 자식노드가 왼쪽 보다 큰 경우
-
-				//스왑인덱스가 0보다 크거나 같은 경우에, 스왑인덱스가 있는 지 확인하고,
-				//스왑인덱스 값이 나의 값보다 작은 경우에 바꾼다.
-				//스왑인덱스가 0보다 작은 경우에는 왼쪽 값이 현재 값보다 크지 않다는 의미이므로 바로 오른쪽 값과 바꿈.
-				if swapIdx < 0 || h.list[swapIdx] < h.list[rightIdx] {
+			if h.list[rightIdx] < h.list[idx] {
+				if swapIdx < 0 || h.list[swapIdx] > h.list[rightIdx] {
 					swapIdx = rightIdx
 				}
 			}
