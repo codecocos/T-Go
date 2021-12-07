@@ -7,15 +7,22 @@ type Bread struct {
 }
 
 type StrawberryJam struct {
- opened bool
+  opened bool
+}
+type OrangeJam struct{
+  opened bool
 }
 
 type SpoonOfStrawberry struct {
 }
 
+type SpoonOfOrangeJam struct {
+}
+
 type Sandwitch struct {
  val string
 }
+
 
 func GetBreads(num int) []*Bread {
  breads := make([]*Bread, num)
@@ -29,12 +36,24 @@ func OpenStrawberryJam(jam *StrawberryJam) {
  jam.opened = true
 }
 
+func OpenOrangeJam(jam *OrangeJam)  {
+  jam.opened = true
+}
+
 func GetOneSpoon(_ *StrawberryJam) *SpoonOfStrawberry {
- return &SpoonOfStrawberry{}
+  return &SpoonOfStrawberry{}
+}
+
+func GetOneOrangeJamSpoon(_ *OrangeJam) *SpoonOfOrangeJam {
+  return &SpoonOfOrangeJam{}
 }
 
 func PutJamOnBread(bread *Bread, jam *SpoonOfStrawberry) {
  bread.val += " + Strawberry Jam"
+}
+
+func PutOrangeJamOnBread(bread *Bread, jam *SpoonOfOrangeJam) {
+ bread.val += " + Orange Jam"
 }
 
 func MakeSandwitch(breads []*Bread) *Sandwitch {
@@ -49,16 +68,20 @@ func main() {
  // 1. 빵 두개를 꺼낸다.
  breads := GetBreads(2)
 
- jam := &StrawberryJam{}
+ //jam := &StrawberryJam{}
+ jam := &OrangeJam{}
 
  // 2. 딸기잼 뚜껑을 연다.
- OpenStrawberryJam(jam)
+ //OpenStrawberryJam(jam)
+ OpenOrangeJam(jam)
 
  // 3. 딸기잼을 한스푼 뜬다.
- spoon := GetOneSpoon(jam)
+ //spoon := GetOneSpoon(jam)
+ spoon := GetOneOrangeJamSpoon(jam)
 
  // 4. 딸기잼을 빵에 바른다.
- PutJamOnBread(breads[0], spoon)
+ //PutJamOnBread(breads[0], spoon)
+ PutOrangeJamOnBread(breads[0],spoon)
 
  // 5. 빵을 덮는다.
  sandwitch := MakeSandwitch(breads)
