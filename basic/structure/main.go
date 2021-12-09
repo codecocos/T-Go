@@ -17,7 +17,7 @@ func main() {
 	p1 := Person{"coco", 15}
 	p2 := Person{name: "gogo", age: 21}
 	p3 := Person{name: "꼬꼬"}
-	p4 := Person{}
+	p4 := Person{} //defalt값은 공백 과 0
 
 	fmt.Println(p,p1,p2,p3,p4)
 

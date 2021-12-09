@@ -13,9 +13,9 @@ func main() {
 	b = 2
 
 
-	fmt.Println(a) //a의 값이 출력됨
-	fmt.Println(p) //a의 메모리주소가 출력됨.
-	fmt.Println(*p)//a의 메모리주소가 가르키고 있는 주소의 값을 알고 싶을 때 : *p
+	fmt.Println("a의 값 : ", a) //a의 값이 출력됨
+	fmt.Println("a의 메모리주소 : ", p) //a의 메모리주소가 출력됨.
+	fmt.Println("a의 메모리주소가 가르키고 있는 주소의 값 : ", *p)//a의 메모리주소가 가르키고 있는 주소의 값을 알고 싶을 때 : *p
 
 	p = &b
 

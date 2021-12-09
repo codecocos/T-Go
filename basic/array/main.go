@@ -3,6 +3,8 @@ package main
 import "fmt"
 
 func main() {
+	// // var 배열이름 [배열크기]자료형
+	// // 배열의 크기는 자료형을 구성하는 한 요소
 	// var A [10]int
 
 	// for i := 0; i < len(A); i++ {
@@ -10,6 +12,11 @@ func main() {
 	// }
 
 	// fmt.Println(A)
+	
+	// // [...]을 이용한 배열 크기 자동 설정
+	// var arr = [...]int{9, 8, 7, 6} 
+	// //arr 전체와  배열 크기 출력해보기
+	// fmt.Println(arr, len(arr))    
 
 	/////////////////////////////////////////////
 

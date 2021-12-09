@@ -25,9 +25,11 @@ func main() {
 
 	s.InputSungjuk("과학","C") 
 	s.PrintSungjuk() 
+
 	// (s Student) 수학 A+ : 과학 C 로 값이 변경되지 않음.
 	// (s *Student) 과학 C : 원하는 값으로 변경 됨.
-
+	
+	fmt.Println(s)
 }
 
 //c,c++

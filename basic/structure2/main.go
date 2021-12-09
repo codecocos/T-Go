@@ -27,7 +27,7 @@ func ViewSungjuk(s Student)  {
 	fmt.Println(s.sungjuk)
 }
 
-func (s Student) InputSungjuk (name string, grade string){
+func (s Student) InputSungjuk(name string, grade string){
 	s.sungjuk.name = name
 	s.sungjuk.grade = grade
 	

@@ -24,7 +24,7 @@ func main() {
 	for i := 0; i <= 10; i++ {
 		s1 += i
 	}
-	fmt.Println(s1)
+	fmt.Println("s1 : ", s1)
 
 }
 

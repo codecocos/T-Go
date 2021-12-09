@@ -10,6 +10,7 @@ func main() {
 
 	for i := 0; i < len(arr); i++ {
 		idx := arr[i]
+		fmt.Println(idx)
 		temp[idx]++
 	}
 
@@ -26,3 +27,13 @@ func main() {
 
 	fmt.Println(arr)
 }
+
+/* 
+Radix Sort
+
+낮은 자리수부터 비교하여 정렬해 간다는 것을 기본 개념으로 하는 정렬 알고리즘
+
+원소 값의 범위가 한정적 일 때,
+
+
+*/
