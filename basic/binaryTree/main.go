@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/T-Go/dataStruct"
+	"github.com/T-Go/basic/dataStruct"
 )
 
 func main() {
